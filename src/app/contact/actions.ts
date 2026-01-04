@@ -9,10 +9,10 @@ export async function submitContactForm(
   formData: FormData
 ): Promise<FormState> {
   // CSRF protection - verify request origin
-  const headersList = headers();
-  const origin = await headersList.get('origin');
-  const host = await headersList.get('host');
-  
+  const headersList = await headers();
+  const origin = headersList.get('origin');
+  const host = headersList.get('host');
+
   if (!origin || !host || !origin.includes(host)) {
     return {
       message: 'Invalid request origin. CSRF protection triggered.',
@@ -32,7 +32,7 @@ export async function submitContactForm(
       success: false,
     };
   }
-  
+
   try {
     // Send email using our email service
     const result = await sendContactEmail(validatedFields.data);

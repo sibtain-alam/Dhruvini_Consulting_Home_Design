@@ -6,8 +6,8 @@ import nodemailer from 'nodemailer';
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.EMAIL_USER || 'amanrck69@gmail.com',
-    pass: process.env.EMAIL_PASSWORD || 'dxkkdhssuxqhjcms',
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASSWORD,
   },
 });
 
@@ -21,8 +21,8 @@ export async function sendContactEmail(data: EmailData): Promise<{ success: bool
   try {
     // Email content
     const mailOptions = {
-      from: process.env.EMAIL_USER || 'amanrck69@gmail.com',
-      to: process.env.EMAIL_USER || 'amanrck69@gmail.com',
+      from: process.env.EMAIL_USER,
+      to: process.env.EMAIL_USER,
       subject: `Contact Form: Message from ${data.name}`,
       text: `
         Name: ${data.name}
@@ -44,7 +44,7 @@ export async function sendContactEmail(data: EmailData): Promise<{ success: bool
 
     // Send email
     await transporter.sendMail(mailOptions);
-    
+
     return {
       success: true,
       message: 'Thank you for your message! We will get back to you shortly.',

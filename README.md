@@ -7,12 +7,12 @@ Two distinct design directions have been implemented for client review:
 
 ### 1. Human-Centric Design (Option B)
 A warm, clean, and minimalist design focused on human connection and people.
-- **Preview:** Run the project locally and visit `http://localhost:3000/design-human`
+- **Preview:** Run the project locally and visit `http://localhost:9003/design-human`
 - **View Source Code:** [src/app/design-human/page.tsx](https://github.com/sibtain-alam/Dhruvini_Consulting_Home_Design/blob/main/src/app/design-human/page.tsx)
 
 ### 2. Corporate Design (Option D)
 A bold, professional, and data-driven design with a deep blue palette.
-- **Preview:** Run the project locally and visit `http://localhost:3000/design-corporate`
+- **Preview:** Run the project locally and visit `http://localhost:9003/design-corporate`
 - **View Source Code:** [src/app/design-corporate/page.tsx](https://github.com/sibtain-alam/Dhruvini_Consulting_Home_Design/blob/main/src/app/design-corporate/page.tsx)
 
 ## How to Run Locally

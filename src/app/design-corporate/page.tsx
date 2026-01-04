@@ -89,7 +89,7 @@ export default function CorporateDesignPage() {
                                             <Icon className="h-8 w-8 text-blue-500 mb-6" />
                                             <h3 className="text-xl font-bold mb-2">{service.title}</h3>
                                             <p className="text-sm text-slate-400 mb-6">{service.description}</p>
-                                            <Link href={`/services/${service.slug}`} className="text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-white flex items-center gap-2">
+                                            <Link href={service.href} className="text-xs font-bold uppercase tracking-widest text-blue-400 hover:text-white flex items-center gap-2">
                                                 Details <ArrowRight className="h-3 w-3" />
                                             </Link>
                                         </div>
@@ -110,15 +110,34 @@ export default function CorporateDesignPage() {
                             </Button>
                         </div>
 
-                        <div className="grid grid-cols-2 md:grid-cols-4 gap-0 border-t border-l border-slate-800">
-                            {industries.slice(0, 4).map((industry) => (
-                                <div key={industry.name} className="border-r border-b border-slate-800 p-10 hover:bg-slate-900 transition-colors group relative cursor-pointer">
-                                    <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <ArrowRight className="h-4 w-4 text-blue-500" />
+                        <div className="grid grid-cols-1 md:grid-cols-4 gap-0 border-t border-l border-slate-800">
+                            {industries.slice(0, 4).map((industry) => {
+                                const industryImages: Record<string, string> = {
+                                    'Technology & SaaS': 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&q=80&w=600',
+                                    'Manufacturing': 'https://images.unsplash.com/photo-1565608444338-319ef2997879?auto=format&fit=crop&q=80&w=600',
+                                    'Real Estate': 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600',
+                                    'Healthcare & Life Sciences': 'https://images.unsplash.com/photo-1579154204601-01588f351e67?auto=format&fit=crop&q=80&w=800',
+                                };
+                                const bgImage = industryImages[industry.name] || 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&q=80&w=600';
+
+                                return (
+                                    <div key={industry.name} className="group relative border-r border-b border-slate-800 aspect-video md:aspect-auto overflow-hidden cursor-pointer">
+                                        <Image
+                                            src={bgImage}
+                                            alt={industry.name}
+                                            fill
+                                            className="object-cover opacity-20 filter grayscale group-hover:grayscale-0 group-hover:opacity-40 transition-all duration-700"
+                                        />
+                                        <div className="absolute inset-0 bg-[#001233]/60 group-hover:bg-[#001233]/20 transition-all" />
+                                        <div className="relative z-10 p-10 h-full flex flex-col justify-end">
+                                            <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                                                <ArrowRight className="h-4 w-4 text-blue-500" />
+                                            </div>
+                                            <h3 className="text-lg font-bold text-slate-300 group-hover:text-white uppercase tracking-widest">{industry.name}</h3>
+                                        </div>
                                     </div>
-                                    <h3 className="text-lg font-bold text-slate-300 group-hover:text-white">{industry.name}</h3>
-                                </div>
-                            ))}
+                                );
+                            })}
                         </div>
                     </div>
                 </section>

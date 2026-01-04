@@ -67,7 +67,7 @@ export default function Home() {
                       <CardDescription className="text-base text-foreground/90 mb-4 font-medium">
                         {service.description}
                       </CardDescription>
-                      <Link href={`/services/${service.slug}`} className="text-primary font-semibold flex items-center hover:underline">
+                      <Link href={service.href} className="text-primary font-semibold flex items-center hover:underline">
                         Learn how <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </CardContent>
