@@ -5,6 +5,7 @@ import Header from '@/components/layout/header';
 import Footer from '@/components/layout/footer';
 import './globals.css';
 
+// Final production build trigger
 export const metadata: Metadata = {
   title: 'Dhruvini Consulting Private Limited',
   description: 'Expertise in Talent Acquisition, Executive Search, and Leadership Hiring.',
