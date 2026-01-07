@@ -48,12 +48,12 @@ export default function Footer() {
               <h2 className="mb-6 text-sm font-semibold text-foreground uppercase">Legal</h2>
               <ul className="text-muted-foreground font-medium space-y-4">
                 <li>
-                  <Link href="#" className="hover:text-primary transition-colors">
+                  <Link href="/privacy" className="hover:text-primary transition-colors">
                     Privacy Policy
                   </Link>
                 </li>
                 <li>
-                  <Link href="#" className="hover:text-primary transition-colors">
+                  <Link href="/terms" className="hover:text-primary transition-colors">
                     Terms & Conditions
                   </Link>
                 </li>
@@ -62,16 +62,16 @@ export default function Footer() {
             <div>
               <h2 className="mb-6 text-sm font-semibold text-foreground uppercase">Contact</h2>
               <ul className="text-muted-foreground font-medium space-y-4">
-                  <li>
-                    <a href="mailto:info@dhruviniconsulting.com" className="hover:text-primary transition-colors">
-                        info@dhruviniconsulting.com
-                    </a>
-                  </li>
-                  <li>
-                    <a href="tel:+919148184794" className="hover:text-primary transition-colors">
-                        +91 91481 84794
-                    </a>
-                  </li>
+                <li>
+                  <a href="mailto:info@dhruviniconsulting.com" className="hover:text-primary transition-colors">
+                    info@dhruviniconsulting.com
+                  </a>
+                </li>
+                <li>
+                  <a href="tel:+919148184794" className="hover:text-primary transition-colors">
+                    +91 91481 84794
+                  </a>
+                </li>
               </ul>
             </div>
           </div>

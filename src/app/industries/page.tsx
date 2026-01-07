@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import { industries } from '@/lib/data';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
 import { Code, Factory, Building2, HeartPulse, Banknote, ShoppingCart } from 'lucide-react';
@@ -9,6 +10,11 @@ const iconMap: { [key: string]: React.ElementType } = {
   'Healthcare & Life Sciences': HeartPulse,
   'Financial Services': Banknote,
   'Consumer & Retail': ShoppingCart,
+};
+
+export const metadata: Metadata = {
+  title: 'Industry Expertise | Dhruvini Consulting',
+  description: 'Our consultants possess deep domain knowledge across technology, manufacturing, real estate, and more.',
 };
 
 export default function IndustriesPage() {

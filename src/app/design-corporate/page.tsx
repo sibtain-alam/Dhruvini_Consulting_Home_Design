@@ -40,8 +40,8 @@ export default function CorporateDesignPage() {
                                     <Link href="/services" className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 font-bold uppercase tracking-widest text-xs transition-all hover:translate-x-1">
                                         Explore Services
                                     </Link>
-                                    <Link href="/case-studies" className="border border-slate-700 hover:border-blue-500 text-white px-8 py-4 font-bold uppercase tracking-widest text-xs transition-all">
-                                        Case Studies
+                                    <Link href="/insights" className="border border-slate-700 hover:border-blue-500 text-white px-8 py-4 font-bold uppercase tracking-widest text-xs transition-all">
+                                        See Insights
                                     </Link>
                                 </div>
                             </div>
@@ -79,9 +79,9 @@ export default function CorporateDesignPage() {
                             <div className="col-span-12 md:col-span-8 grid md:grid-cols-2 gap-4">
                                 {services.map((service, idx) => {
                                     const Icon = {
-                                        'People Analytics': Users,
-                                        'HR Process Automation': Code,
-                                        'Talent Acquisition Analytics': Briefcase,
+                                        'Talent Acquisition': Users,
+                                        'Executive Search': Briefcase,
+                                        'Leadership Hiring': Award,
                                     }[service.title] || Users;
 
                                     return (

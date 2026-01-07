@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import { services } from '@/lib/data';
 import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
@@ -8,6 +9,11 @@ const iconMap: { [key: string]: React.ElementType } = {
   'Talent Acquisition': Users,
   'Executive Search': Briefcase,
   'Leadership Hiring': Award,
+};
+
+export const metadata: Metadata = {
+  title: 'Our Services | Dhruvini Consulting',
+  description: 'Expert talent acquisition, executive search, and leadership hiring services.',
 };
 
 export default function ServicesPage() {

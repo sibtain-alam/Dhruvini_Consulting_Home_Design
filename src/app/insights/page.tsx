@@ -1,3 +1,4 @@
+import { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
 import { insights } from '@/lib/data';
@@ -5,6 +6,11 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import { Card, CardContent, CardHeader, CardTitle, CardDescription, CardFooter } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+
+export const metadata: Metadata = {
+  title: 'Insights & Thought Leadership | Dhruvini Consulting',
+  description: 'Expert analysis and articles on HR trends, talent acquisition, and leadership strategies.',
+};
 
 export default function InsightsPage() {
   const getPlaceholderImage = (id: string) => {
@@ -52,9 +58,9 @@ export default function InsightsPage() {
                   <p className="text-muted-foreground line-clamp-4">{insight.excerpt}</p>
                 </CardContent>
                 <CardFooter>
-                    <Button variant="link" asChild className="p-0 text-accent-foreground font-semibold">
-                        <Link href={`/insights/${insight.slug}`}>Read More <ArrowRight className="ml-1 h-4 w-4" /></Link>
-                    </Button>
+                  <Button variant="link" asChild className="p-0 text-accent-foreground font-semibold">
+                    <Link href={`/insights/${insight.slug}`}>Read More <ArrowRight className="ml-1 h-4 w-4" /></Link>
+                  </Button>
                 </CardFooter>
               </Card>
             );

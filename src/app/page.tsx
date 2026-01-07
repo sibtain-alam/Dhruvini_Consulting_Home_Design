@@ -31,8 +31,8 @@ export default function Home() {
                   <Link href="/services" className="hero-cta bg-white text-brand-blue">
                     Explore Services
                   </Link>
-                  <Link href="/case-studies" className="hero-cta border border-white text-white hover:bg-white hover:bg-opacity-10">
-                    See Case Studies
+                  <Link href="/insights" className="hero-cta border border-white text-white hover:bg-white hover:bg-opacity-10">
+                    See Insights
                   </Link>
                 </div>
               </div>
@@ -50,9 +50,9 @@ export default function Home() {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
               {services.map((service) => {
                 const Icon = {
-                  'People Analytics': Users,
-                  'HR Process Automation': Code,
-                  'Talent Acquisition Analytics': Briefcase,
+                  'Talent Acquisition': Users,
+                  'Executive Search': Briefcase,
+                  'Leadership Hiring': Award,
                 }[service.title] || Users;
 
                 return (
@@ -68,7 +68,7 @@ export default function Home() {
                         {service.description}
                       </CardDescription>
                       <Link href={service.href} className="text-primary font-semibold flex items-center hover:underline">
-                        Learn how <ArrowRight className="ml-2 h-4 w-4" />
+                        Learn more <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </CardContent>
                   </Card>
