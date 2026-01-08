@@ -1,6 +1,7 @@
 'use server';
 
-import { analyzeResume } from '@/ai/flows/resume-analysis-and-categorization';
+// Temporarily disabled for deployment - Genkit AI dependencies removed
+// import { analyzeResume } from '@/ai/flows/resume-analysis-and-categorization';
 import { z } from 'zod';
 import { jobs } from '@/lib/data';
 
@@ -34,22 +35,17 @@ export async function analyzeAndSuggest(formData: FormData) {
         analysis: null,
       };
     }
-    
-    const buffer = Buffer.from(await resumeFile.arrayBuffer());
-    const resumeDataUri = `data:${resumeFile.type};base64,${buffer.toString('base64')}`;
 
-    const openPositions = jobs.map(job => `- ${job.title} in ${job.department}`).join('\n');
+    // Temporarily disabled - AI analysis not available during deployment
+    // const buffer = Buffer.from(await resumeFile.arrayBuffer());
+    // const resumeDataUri = `data:${resumeFile.type};base64,${buffer.toString('base64')}`;
+    // const openPositions = jobs.map(job => `- ${job.title} in ${job.department}`).join('\n');
+    // const analysis = await analyzeResume({ resumeDataUri, openPositions });
 
-    const analysis = await analyzeResume({
-      resumeDataUri,
-      openPositions,
-    });
-    
-    if (!analysis) {
-        throw new Error("AI analysis returned no result.");
-    }
-    
-    return { analysis, error: null };
+    return {
+      analysis: null,
+      error: 'Resume analysis is temporarily unavailable. Please contact us directly at careers@dhruvini.com'
+    };
 
   } catch (err) {
     console.error(err);
