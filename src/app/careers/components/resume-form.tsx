@@ -7,7 +7,7 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from '@/components/ui/form';
-import type { ResumeAnalysisOutput } from '@/ai/flows/resume-analysis-and-categorization';
+import type { ResumeAnalysisOutput } from '../types';
 import { analyzeAndSuggest } from '../actions';
 import { UploadCloud } from 'lucide-react';
 
@@ -30,10 +30,10 @@ const FormSchema = z.object({
 });
 
 interface ResumeFormProps {
-    setAnalysis: (analysis: ResumeAnalysisOutput | null) => void;
-    setError: (error: string | null) => void;
-    setIsSubmitting: (isSubmitting: boolean) => void;
-    isSubmitting: boolean;
+  setAnalysis: (analysis: ResumeAnalysisOutput | null) => void;
+  setError: (error: string | null) => void;
+  setIsSubmitting: (isSubmitting: boolean) => void;
+  isSubmitting: boolean;
 }
 
 export default function ResumeForm({ setAnalysis, setError, setIsSubmitting, isSubmitting }: ResumeFormProps) {
@@ -52,7 +52,7 @@ export default function ResumeForm({ setAnalysis, setError, setIsSubmitting, isS
 
     const formData = new FormData();
     formData.append('resume', data.resume[0]);
-    
+
     const result = await analyzeAndSuggest(formData);
 
     if (result.error) {
@@ -60,11 +60,11 @@ export default function ResumeForm({ setAnalysis, setError, setIsSubmitting, isS
     } else if (result.analysis) {
       setAnalysis(result.analysis);
       form.reset();
-      if(formRef.current) formRef.current.reset();
+      if (formRef.current) formRef.current.reset();
     }
     setIsSubmitting(false);
   };
-  
+
 
   return (
     <Form {...form}>
@@ -83,8 +83,8 @@ export default function ResumeForm({ setAnalysis, setError, setIsSubmitting, isS
           )}
         />
         <Button type="submit" disabled={isSubmitting} className="w-full">
-            <UploadCloud className="mr-2 h-4 w-4" />
-            {isSubmitting ? 'Analyzing...' : 'Analyze My Resume'}
+          <UploadCloud className="mr-2 h-4 w-4" />
+          {isSubmitting ? 'Analyzing...' : 'Analyze My Resume'}
         </Button>
       </form>
     </Form>
